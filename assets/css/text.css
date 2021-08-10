@@ -1,0 +1,13 @@
+[data-element_type="s2m_text_block"] .wpb_element_title {
+	display: none;
+}
+[data-vc-shortcode-param-name="text_content"] .edit_form_line textarea {
+	min-height: 200px;
+}
+
+.ql-editor {
+	min-height: 110px;
+}
+.vc_media-xs .vc_col-xs-6 {
+    padding-top: 15px;
+}

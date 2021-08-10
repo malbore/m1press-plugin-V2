@@ -1,0 +1,792 @@
+{
+    "text_block": {
+        "name": "Bloc de texte",
+        "icon": "%path%assets/vc-el-img/vc-icon-text.svg",
+        "add_css": "%path%assets/css/text.css",
+        "add_js": "%path%assets/js/text.js",
+        "params": {
+            "content": {
+                "type": "textarea_html",
+                "heading": "Votre contenu",
+                "holder": "div",
+                "description": "Votre contenu",
+                "value": "<p>I am test text block. Click edit button to change this text.</p>"
+            }
+        }
+    },
+    "img": {
+        "name": "Image seule",
+        "add_css": "%path%assets/css/img.css",
+        "icon": "%path%assets/vc-el-img/vc-icon-image.svg",
+        "params": {
+            "titre_bloc": {
+                "type": "textfield",
+                "heading": "Titre de l'image",
+                "description": "Titre de l'image"
+            },
+            "img_on_bg": {
+                "type": "attach_image",
+                "heading": "Sélectionnez une image",
+                "holder": "img",
+                "description": "Sélectionnez une image"
+            },
+            "img_align": {
+                "type": "dropdown",
+                "heading": "Alignement de l'image",
+                "description": "Alignement de l'image",
+                "holder": false,
+                "value": {
+                    "Centre": "text_center",
+                    "Gauche": "text_left",
+                    "Droite": "text_right"
+                }
+            },
+            "img_link_type": {
+                "type": "dropdown",
+                "heading": "Lien sur l'image",
+                "description": "Lien sur l'image",
+                "holder": false,
+                "value": {
+                    "Pas de lien": "sans",
+                    "Lien externe": "externe",
+                    "Lien interne": "interne"
+                }
+            },
+            "img_link_externe": {
+                "type": "textfield",
+                "heading": "Url",
+                "holder": false,
+                "value": "",
+                "dependency": {
+                    "element": "img_link_type",
+                    "value": "externe"
+                }
+            },
+            "img_link_interne": {
+                "type": "vc_link",
+                "heading": "Url",
+                "holder": false,
+                "dependency": {
+                    "element": "img_link_type",
+                    "value": "interne"
+                }
+            }
+        }
+    },
+    "img_editor": {
+        "name": "Image avec éditeur",
+        "icon": "%path%assets/vc-el-img/vc-icon-img-html-bg.svg",
+        "add_css": "%path%assets/css/img.css",
+        "params": {
+            "titre_bloc": {
+                "type": "textfield",
+                "heading": "Titre du bloc",
+                "holder": "div",
+                "description": "Titre de l'élément"
+            },
+            "img_on_bg": {
+                "type": "attach_image",
+                "heading": "Image",
+                "description": "Image",
+                "edit_field_class": "vc_col-xs-4"
+            },
+            "img_size": {
+                "type": "dropdown",
+                "heading": "Ajustement de l'image dans son conteneur",
+                "edit_field_class": "vc_col-xs-4",
+                "value": {
+                    "Ajuster proportionnellement (cover)": "cover",
+                    "Ajuster au bloc (contain)": "contain"
+                }
+            },
+            "img_position": {
+                "type": "dropdown",
+                "heading": "Position de l'image",
+                "edit_field_class": "vc_col-xs-4",
+                "value": {
+                    "Centrée": "50% 50%",
+                    "Centrée en haut": "50% 0",
+                    "Centrée en bas": "50% 100%"
+                }
+            },
+            "img_editor": {
+                "type": "dropdown",
+                "heading": "Type d'éditeur",
+                "edit_field_class": "vc_col-xs-6",
+                "holder": false,
+                "value": {
+                    "Éditeur visuel": "visual",
+                    "Éditeur HTML brut": "html"
+                }
+            },
+            "content_html": {
+                "type": "textarea_raw_html",
+                "heading": "Contenu HTML brut",
+                "description": "HTML personnalisé",
+                "dependency": {
+                    "element": "img_editor",
+                    "value": "html"
+                }
+            },
+            "content": {
+                "type": "textarea_html",
+                "heading": "Contenu éditeur visuel",
+                "holder": "div",
+                "description": "Votre contenu",
+                "value": "<p>Votre contenu ici</p>",
+                "dependency": {
+                    "element": "img_editor",
+                    "value": "visual"
+                }
+            },
+            "img_link_type": {
+                "type": "dropdown",
+                "heading": "Lien sur l'image",
+                "description": "Lien sur l'image",
+                "holder": false,
+                "value": {
+                    "Pas de lien": "sans",
+                    "Lien externe": "externe",
+                    "Lien interne": "interne"
+                }
+            },
+            "img_link_externe": {
+                "type": "textfield",
+                "heading": "Url",
+                "holder": false,
+                "value": "",
+                "dependency": {
+                    "element": "img_link_type",
+                    "value": "externe"
+                }
+            },
+            "img_link_interne": {
+                "type": "vc_link",
+                "heading": "Url",
+                "holder": false,
+                "dependency": {
+                    "element": "img_link_type",
+                    "value": "interne"
+                }
+            }
+        }
+    },
+    "post_list": {
+        "name": "Liste de post",
+        "icon": "%path%assets/vc-el-img/vc-icon-postlist.svg",
+        "params": {
+            "post_type": {
+                "type": "posttypes",
+                "heading": "Sélectionner la source",
+                "holder": "div",
+                "value": ""
+            },
+            "display_type": {
+                "type": "dropdown",
+                "heading": "Type d'affichage",
+                "edit_field_class": "vc_col-xs-6",
+                "holder": false,
+                "value": {
+                    "Pagination": "pagination",
+                    "Sans pagination": "without_pagination",
+                    "Slider": "slider"
+                }
+            },
+            "slider_limit": {
+                "type": "textfield",
+                "heading": "Nb slide max",
+                "edit_field_class": "vc_col-xs-6",
+                "holder": false,
+                "value": 6,
+                "dependency": {
+                    "element": "display_type",
+                    "value": "slider"
+                }
+            },
+            "slider_options": {
+                "type": "checkbox",
+                "heading": "Options du slider",
+                "edit_field_class": "vc_col-xs-6",
+                "holder": false,
+                "value": {
+                    "Flèche": "fleche",
+                    "Navigation points": "dots"
+                },
+                "dependency": {
+                    "element": "display_type",
+                    "value": "slider"
+                }
+            },
+            "spacing_slide": {
+                "type": "textfield",
+                "heading": "Espacement des slides",
+                "edit_field_class": "vc_col-xs-6",
+                "holder": false,
+                "value": "",
+                "dependency": {
+                    "element": "display_type",
+                    "value": "slider"
+                }
+            },
+            "slider_col_desk": {
+                "type": "dropdown",
+                "heading": "Slides desktop",
+                "edit_field_class": "vc_col-xs-4",
+                "value": {
+                    "1": 1,
+                    "2": 2,
+                    "3": 3,
+                    "4": 4,
+                    "5": 5,
+                    "6": 6
+                },
+                "holder": false,
+                "dependency": {
+                    "element": "display_type",
+                    "value": "slider"
+                }
+            },
+            "slider_col_tab": {
+                "type": "dropdown",
+                "heading": "Slides tabette",
+                "edit_field_class": "vc_col-xs-4",
+                "value": {
+                    "1": 1,
+                    "2": 2,
+                    "3": 3,
+                    "4": 4,
+                    "5": 5,
+                    "6": 6
+                },
+                "holder": false,
+                "dependency": {
+                    "element": "display_type",
+                    "value": "slider"
+                }
+            },
+            "slider_col_mob": {
+                "type": "dropdown",
+                "heading": "Slides mobile",
+                "edit_field_class": "vc_col-xs-4",
+                "value": {
+                    "1": 1,
+                    "2": 2,
+                    "3": 3,
+                    "4": 4
+                },
+                "holder": false,
+                "dependency": {
+                    "element": "display_type",
+                    "value": "slider"
+                }
+            },
+            "col_desk": {
+                "type": "dropdown",
+                "heading": "Colonnes desktop",
+                "edit_field_class": "vc_col-xs-4",
+                "holder": false,
+                "value": {
+                    "1 col": "col-12",
+                    "2 cols": "col-6",
+                    "3 cols": "col-4",
+                    "4 cols": "col-3",
+                    "6 cols": "col-2"
+                },
+                "dependency": {
+                    "element": "display_type",
+                    "value": [
+                        "pagination",
+                        "without_pagination"
+                    ]
+                }
+            },
+            "gabarit": {
+                "type": "dropdown",
+                "heading": "Choisir un gabarit pour l'article",
+                "holder": false,
+                "value": "%gabarits%"
+            },
+            "nb_results": {
+                "type": "dropdown",
+                "heading": "Nombre de résultats",
+                "edit_field_class": "vc_col-xs-4",
+                "holder": false,
+                "value": {
+                    "Tous": "all",
+                    "Limité": "limited"
+                }
+            },
+            "limited_result": {
+                "type": "textfield",
+                "heading": "Afficher seulement",
+                "edit_field_class": "vc_col-xs-4",
+                "holder": false,
+                "description": "Nombre de résultats à afficher",
+                "value": "",
+                "dependency": {
+                    "element": "nb_results",
+                    "value": "limited"
+                }
+            },
+            "ordertype": {
+                "type": "dropdown",
+                "heading": "Classement",
+                "holder": false,
+                "edit_field_class": "vc_col-xs-4",
+                "value": {
+                    "Ordonner": "orderby",
+                    "Grouper": "groupby"
+                }
+            }
+        }
+    },
+    "slider": {
+        "name": "Slider de contenus",
+        "icon": "%path%assets/vc-el-img/vc-icon-slider.svg",
+        "as_parent": {
+            "only": "m1_img, m1_img_editor, m1_text_block"
+        },
+        "content_element": true,
+        "show_settings_on_create": false,
+        "is_container": true,
+        "js_view": "VcColumnView",
+        "params": {
+            "titre_bloc": {
+                "type": "textfield",
+                "heading": "Titre du bloc",
+                "holder": "div",
+                "description": "Titre de l'élément",
+                "value": ""
+            },
+            "slider_options": {
+                "type": "checkbox",
+                "heading": "Options du slider",
+                "edit_field_class": "vc_col-xs-6",
+                "value": {
+                    "Flèche": "fleche",
+                    "Navigation points": "dots",
+                    "Autoplay": "autoplay",
+                    "Lightbox": "lightbox"
+                }
+            },
+            "spacing_slide": {
+                "type": "textfield",
+                "heading": "Espacement des slides",
+                "edit_field_class": "vc_col-xs-6"
+            },
+            "slider_col_desk": {
+                "type": "dropdown",
+                "heading": "Slides desktop",
+                "edit_field_class": "vc_col-xs-4",
+                "value": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                ]
+            },
+            "slider_col_tab": {
+                "type": "dropdown",
+                "heading": "Slides tabette",
+                "edit_field_class": "vc_col-xs-4",
+                "value": [
+                    "1",
+                    "2",
+                    "3",
+                    "4",
+                    "5",
+                    "6"
+                ]
+            },
+            "slider_col_mob": {
+                "type": "dropdown",
+                "heading": "Slides mobile",
+                "edit_field_class": "vc_col-xs-4",
+                "value": [
+                    "1",
+                    "2",
+                    "3",
+                    "4"
+                ]
+            }
+        }
+    },
+    "bloc_group": {
+        "name": "Group de bloc",
+        "as_parent": {
+            "only": "m1_bloc_text_block, m1_bloc_img"
+        },
+        "content_element": true,
+        "show_settings_on_create": false,
+        "is_container": true,
+        "js_view": "VcColumnView",
+        "params": {
+            "titre_bloc": {
+                "type": "textfield",
+                "heading": "Titre du bloc",
+                "holder": "div",
+                "description": "Titre de l'élément"
+            },
+            "lien_bloc": {
+                "type": "link",
+                "header": "Lien du bloc",
+                "description": "Bloc cliquable, laisser vide si pas néscessaire."
+            }
+        }
+    },
+    "bloc_img": {
+        "name": "Image",
+        "add_css": "%path%assets/css/img.css",
+        "icon": "%path%assets/vc-el-img/vc-icon-image.svg",
+        "as_child": {
+            "only": "m1_bloc_group"
+        },
+        "params": {
+            "titre_bloc": {
+                "type": "textfield",
+                "heading": "Titre de l'image",
+                "description": "Titre de l'image"
+            },
+            "img_on_bg": {
+                "type": "attach_image",
+                "heading": "Sélectionnez une image",
+                "holder": "img",
+                "description": "Sélectionnez une image"
+            },
+            "img_align": {
+                "type": "dropdown",
+                "heading": "Alignement de l'image",
+                "description": "Alignement de l'image",
+                "holder": false,
+                "value": {
+                    "Centre": "text-center",
+                    "Gauche": "text-left",
+                    "Droite": "text-right"
+                }
+            },
+            "img_link_type": {
+                "type": "dropdown",
+                "heading": "Lien sur l'image",
+                "description": "Lien sur l'image",
+                "holder": false,
+                "value": {
+                    "Pas de lien": "sans",
+                    "Lien externe": "externe",
+                    "Lien interne": "interne"
+                }
+            },
+            "img_link_externe": {
+                "type": "textfield",
+                "heading": "Url",
+                "holder": false,
+                "value": "",
+                "dependency": {
+                    "element": "img_link_type",
+                    "value": "externe"
+                }
+            },
+            "img_link_interne": {
+                "type": "vc_link",
+                "heading": "Url",
+                "holder": false,
+                "dependency": {
+                    "element": "img_link_type",
+                    "value": "interne"
+                }
+            }
+        }
+    },
+    "bloc_text_block": {
+        "name": "Bloc de texte",
+        "icon": "%path%assets/vc-el-img/vc-icon-text.svg",
+        "add_css": "%path%assets/css/text.css",
+        "add_js": "%path%assets/js/text.js",
+        "as_child": {
+            "only": "m1_bloc_group"
+        },
+        "params": {
+            "content": {
+                "type": "textarea_html",
+                "heading": "Votre contenu",
+                "holder": "div",
+                "description": "Votre contenu",
+                "value": "<p>I am test text block. Click edit button to change this text.</p>"
+            }
+        }
+    },
+    "faq_wrapper": {
+        "name": "Accordéon",
+        "icon": "%path%assets/vc-el-img/vc-icon-accordion.svg",
+        "as_parent": {
+            "only": "m1_faq_titre, m1_faq_content"
+        },
+        "content_element": true,
+        "show_settings_on_create": false,
+        "is_container": true,
+        "js_view": "VcColumnView",
+        "params": {
+            "titre_bloc": {
+                "type": "textfield",
+                "heading": "Titre du bloc",
+                "holder": "div",
+                "description": "Titre de l'élément"
+            }
+        }
+    },
+    "faq_titre": {
+        "name": "Titre",
+        "as_child": {
+            "only": "m1_faq_wrapper"
+        },
+        "params": {
+            "titre": {
+                "type": "textfield",
+                "heading": "Titre accordéon",
+                "holder": "div",
+                "description": "Titre de l'élément",
+                "value": ""
+            },
+            "balise": {
+                "type": "dropdown",
+                "heading": "Balise",
+                "edit_field_class": "vc_col-xs-6",
+                "value": {
+                    "Bloc": "div",
+                    "Titre 1": "h1",
+                    "Titre 2": "h2",
+                    "Titre 3": "h3",
+                    "Titre 4": "h4",
+                    "Titre 5": "h5"
+                }
+            }
+        }
+    },
+    "faq_content": {
+        "name": "Texte",
+        "as_child": {
+            "only": "m1_faq_wrapper"
+        },
+        "params": {
+            "content": {
+                "type": "textarea_html",
+                "heading": "Votre contenu",
+                "holder": "div",
+                "description": "Votre contenu",
+                "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+            }
+        }
+    },
+    "spoiler_wrapper": {
+        "name": "Contenu caché",
+        "as_parent": {
+            "only": "m1_spoiler_display, m1_spoiler_hidden, m1_spoiler_bouton"
+        },
+        "content_element": true,
+        "show_settings_on_create": false,
+        "is_container": true,
+        "js_view": "VcColumnView",
+        "params": {
+            "titre_bloc": {
+                "type": "textfield",
+                "heading": "Titre du bloc",
+                "holder": "div",
+                "description": "Titre de l'élément"
+            }
+        }
+    },
+    "spoiler_display": {
+        "name": "Contenu affiché",
+        "as_child": {
+            "only": "m1_spoiler_wrapper"
+        },
+        "params": {
+            "content": {
+                "type": "textarea_html",
+                "heading": "Votre contenu",
+                "holder": "div",
+                "description": "Votre contenu",
+                "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+            }
+        }
+    },
+    "spoiler_hidden": {
+        "name": "Contenu masqué",
+        "as_child": {
+            "only": "m1_spoiler_wrapper"
+        },
+        "params": {
+            "content": {
+                "type": "textarea_html",
+                "heading": "Votre contenu",
+                "holder": "div",
+                "description": "Votre contenu",
+                "value": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>"
+            }
+        }
+    },
+    "spoiler_bouton": {
+        "name": "Bouton ouverture",
+        "as_child": {
+            "only": "m1_spoiler_wrapper"
+        },
+        "params": {
+            "texte_bouton_open": {
+                "type": "textfield",
+                "heading": "Texte du bouton (contenu caché)",
+                "description": "Texte bouton (contenu caché)",
+                "value": "Voir plus"
+            },
+            "texte_bouton_close": {
+                "type": "textfield",
+                "heading": "Texte du bouton (contenu affiché)",
+                "description": "Texte du bouton (contenu affiché)",
+                "value": "Voir moins"
+            }
+        }
+    },
+    "gallery_with_thumb": {
+        "name": "Galerie Photo avec miniatures",
+        "params": {
+            "images": {
+                "type": "attach_images",
+                "heading": "Image de la galerie"
+            },
+            "miniatures": {
+                "type": "textfield",
+                "heading": "Colonnage miniature",
+                "description": "Nombre de colonne pour l'affichage des miniatures"
+            },
+            "option_lightbox": {
+                "type": "checkbox",
+                "heading": "Afficher un lightbox",
+                "description": "Coché = Oui"
+            }
+        }
+    },
+    "gallery": {
+        "name": "Galerie Photo",
+        "params": {
+            "images": {
+                "type": "attach_images",
+                "heading": "Image de la galerie"
+            }
+        }
+    },
+    "gallery_lightbox": {
+        "name": "Galerie photo avec lightbox",
+        "as_parent": {
+            "only": "m1_gallery_lightbox_img"
+        },
+        "icon": "%path%assets/vc-el-img/vc-icon-img-lightbox.svg",
+        "content_element": true,
+        "show_settings_on_create": true,
+        "is_container": true,
+        "js_view": "VcColumnView",
+        "params": {
+            "titre_bloc": {
+                "type": "textfield",
+                "heading": "Titre du bloc",
+                "holder": "div",
+                "description": "Titre de l'élément"
+            },
+            "nb_column": {
+                "type": "dropdown",
+                "heading": "Nombre de colonnes",
+                "description": "Nombre de colonnes",
+                "value": {
+                    "1 col": "col-12",
+                    "2 cols": "col-6",
+                    "3 cols": "col-4",
+                    "4 cols": "col-3",
+                    "6 cols": "col-2"
+                }
+            }
+        }
+    },
+    "gallery_lightbox_img": {
+        "name": "Image avec lightbox",
+        "icon": "%path%assets/vc-el-img/vc-icon-image.svg",
+        "as_child": {
+            "only": "m1_gallery_lightbox"
+        },
+        "params": {
+            "img_on_bg": {
+                "type": "attach_image",
+                "heading": "Ajouter une image",
+                "holder": "img",
+                "description": "Sélectionnez une image"
+            },
+            "ligthbox": {
+                "type": "checkbox",
+                "heading": "Ajout d'une description lightbox",
+                "edit_field_class": "vc_col-xs-6",
+                "value": {
+                    "Activé": "oui"
+                }
+            },
+            "lightbox_desc": {
+                "type": "textarea",
+                "heading": "Description lightbox",
+                "edit_field_class": "vc_col-xs-6",
+                "holder": false,
+                "dependency": {
+                    "element": "ligthbox",
+                    "value": "oui"
+                }
+            }
+        }
+    },
+    "tabs_wrapper": {
+        "name": "Navigation onglet",
+        "as_parent": {
+            "only": "m1_tabs_item"
+        },
+        "content_element": true,
+        "show_settings_on_create": false,
+        "is_container": true,
+        "js_view": "VcColumnView",
+        "params": {
+            "titre_tabs": {
+                "type": "textfield",
+                "heading": "Titre du bloc",
+                "holder": "div",
+                "description": "Titre de l'élément"
+            }
+        }
+    },
+    "tabs_item": {
+        "name": "Onglet",
+        "as_parent": {
+            "only": "m1_bloc_text_block"
+        },
+        "as_child": {
+            "only": "m1_tabs_wrapper"
+        },
+        "content_element": true,
+        "show_settings_on_create": false,
+        "is_container": true,
+        "js_view": "VcColumnView",
+        "params": {
+            "titre_tabs": {
+                "type": "textfield",
+                "heading": "Titre de l'onglet",
+                "holder": "div",
+                "description": "Titre de l'élément"
+            }
+        }
+    },
+    "list_categories": {
+        "name": "Liste des catégories",
+        "params": {
+            "titre_bloc": {
+                "type": "textfield",
+                "heading": "Titre du bloc",
+                "holder": "div",
+                "description": "Titre de l'élément",
+                "value": "Liste des catégories"
+            }
+        }
+    }
+}

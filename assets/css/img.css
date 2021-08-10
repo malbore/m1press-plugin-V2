@@ -1,0 +1,16 @@
+[data-element_type="m1_img"] .wpb_element_title,
+[data-element_type="m1_bloc_img"] .wpb_element_title,
+[data-element_type="m1_gallery_lightbox_img"] .wpb_element_title {
+	display: none;
+}
+[data-element_type="m1_img"] .wpb_element_wrapper,
+[data-element_type="m1_bloc_img"] .wpb_element_wrapper,
+[data-element_type="m1_gallery_lightbox_img"] .wpb_element_wrapper {
+	background-color: #eee;
+}
+[data-element_type="m1_img"] .img_on_bg,
+[data-element_type="m1_bloc_img"] .img_on_bg,
+[data-element_type="m1_fake_background"] .img_on_bg,
+[data-element_type="m1_gallery_lightbox_img"] .img_on_bg {
+	width: 80px;
+}
