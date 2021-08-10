@@ -34,12 +34,12 @@ class Generate_Shortcode
             $as_child = $this->params;
             if (isset($as_child['as_child'])) {
                 extract(shortcode_atts($arr, $atts));
-                include PLUGIN_PATH . 'shortcode-templates/' . $this->id . '-shortcode.php';
+                require PLUGIN_PATH . 'wpbakery-override/shortcode-templates/' . $this->id . '-shortcode.php';
                 return;
             } else {
                 extract(shortcode_atts($arr, $atts));
                 ob_start();
-                include PLUGIN_PATH . 'shortcode-templates/' . $this->id . '-shortcode.php';
+                require PLUGIN_PATH . 'wpbakery-override/shortcode-templates/' . $this->id . '-shortcode.php';
                 return ob_get_clean();
             }
         } else {

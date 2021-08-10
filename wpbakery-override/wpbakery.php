@@ -7,7 +7,7 @@
  *****************************/
 $utilities = new Utilities();
 
-$json =  file_get_contents(PLUGIN_PATH . '/elements.json');
+$json =  file_get_contents(PLUGIN_PATH . '/wpbakery-override/elements.json');
 $json = str_replace('%path%', PLUGIN_URL, $json);
 
 $gabarits = $utilities->s2m_get_gabarits();
@@ -207,5 +207,5 @@ $attributes = array(
 vc_add_params('vc_row', $attributes);
 
 
-$dir = PLUGIN_PATH . '/wpbakery-override/vc_templates';
+$dir = PLUGIN_PATH . 'wpbakery-override/vc_templates';
 vc_set_shortcodes_templates_dir($dir);

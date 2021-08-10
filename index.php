@@ -39,7 +39,6 @@ function register_scripts_for_shortcode() {
 // generate options
 require(__DIR__ . '/admin/index.php');
 require(__DIR__ . '/wpbakery-override/wpbakery.php');
-require __DIR__ . '/updater/plugin-update-checker.php';
 require(__DIR__ . '/updater.php');
 
 
