@@ -1,10 +1,9 @@
 <?php
 require PLUGIN_PATH . 'updater/plugin-update-checker.php';
 $myUpdateChecker = Puc_v4_Factory::buildUpdateChecker(
-    'https://github.com/malbore/m1press-plugin/',
+    'https://github.com/malbore/m1press-plugin-v2/',
     __FILE__,
-    'm1press-plugin'
+    'm1press-plugin-v2'
 );
 //Set the branch that contains the stable release.
 $myUpdateChecker->setBranch('main');
-$myUpdateChecker->setAuthentication('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');
