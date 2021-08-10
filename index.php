@@ -2,8 +2,8 @@
 /**
  * Plugin Name:       M1press Plugin
  * Plugin URI:        https://matiere-1ere.fr
- * Description:       Module sur mesure par M1
- * Version:           3.4
+ * Description:       Module sur mesure par l'agence Matière 1ère
+ * Version:           1.5
  * Requires at least: 5.2
  * Requires PHP:      7.2
  * Author:            Matière 1ère
